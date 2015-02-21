@@ -11,5 +11,5 @@ package practica1s12015_201314408;
  * @author Erick
  */
 public class Pila {
-    
+    int nodod = 0; 
 }
