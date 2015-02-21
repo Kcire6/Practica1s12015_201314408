@@ -6,12 +6,14 @@
 
 package practica1s12015_201314408;
 
+import java.util.Stack;
+
 /**
  *
  * @author Erick
  */
 public class Practica1s12015_201314408 {
-
+public Stack<String> nuevo = new Stack<>();
     /**
      * @param args the command line arguments
      */
