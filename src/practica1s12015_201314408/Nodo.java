@@ -11,10 +11,23 @@ package practica1s12015_201314408;
  * @author Erick
  */
 public class Nodo{
+     public int pos;
+    public Nodo sig;
+    public Zombie zoomb;
+    public Planta plant;
+    public Jugador J;
+    public String datosE; 
+
+public Nodo(){
     
-Zombie zoomb;
-
-
+    pos = 0; 
+    sig = null; 
+    zoomb = null;
+    plant = null; 
+    J = null; 
+    datosE = null; 
+    
+        }
     
     
 }
