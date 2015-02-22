@@ -30,6 +30,15 @@ public class Lista {
      tamaño ++; 
     }
     
+      public void AddDato(String s){
+     inicio.pos = tamaño; 
+     inicio.datosE = s;
+     fin.sig = inicio; 
+     inicio = fin; 
+     fin = new Nodo();
+     tamaño ++; 
+    }
+    
      public Nodo get(int n) {
         Nodo actual = inicio;
         Nodo buscado = new Nodo();
