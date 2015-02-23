@@ -13,13 +13,20 @@ import java.util.Stack;
  * @author Erick
  */
 public class Practica1s12015_201314408 {
-public Stack<String> nuevo = new Stack<>();
+  
+  public static Lista JugadorP = new Lista();
+  public static Lista JugadorZ = new Lista();
+  public static Pila Plantas = new Pila();
+          public Practica1s12015_201314408(){
+ 
+    }
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
         // TODO code application logic here
    Menu.Start();
+  
     }
     
 }
