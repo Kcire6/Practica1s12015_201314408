@@ -6,8 +6,6 @@
 
 package practica1s12015_201314408;
 
-import java.util.ArrayList;
-
 /**
  *
  * @author Erick
@@ -38,12 +36,64 @@ public class Matriz {
         }        
     }
     
-    public void Imprimir(){
-        String datos = "";
+    public void AddZombie(int x,int y, Zombie zo){
         for(int i =0; i<column;i++){
         for(int j = 0; j< fil; j++){
-            datos = " " + columnas.get(i).M.columna + " " + columnas.get(i).M.get(j).fila ;
-         System.out.println(datos);
+            if(i == x && j == y){
+               columnas.get(i).M.get(j).Z = zo;
+            }
+        }
+            }
+        
+    }
+    
+     public void AddPlanta(int x,int y, Planta zo){
+        for(int i =0; i<column;i++){
+        for(int j = 0; j< fil; j++){
+            if(i == x && j == y){
+               columnas.get(i).M.get(j).P = zo;
+            }
+        }
+            }
+        
+    }
+   
+    
+        public void DZombie(int x,int y){
+        for(int i =0; i<column;i++){
+        for(int j = 0; j< fil; j++){
+            if(columnas.get(i).M.get(j).columna == x && columnas.get(i).M.get(j).fila == y){
+               columnas.get(i).M.get(j).Z = null;
+            }
+        }
+            }
+        
+    }
+    
+             public void DPlanta(int x,int y){
+        for(int i =0; i<column;i++){
+        for(int j = 0; j< fil; j++){
+            if(columnas.get(i).M.get(j).columna == x && columnas.get(i).M.get(j).fila == y){
+               columnas.get(i).M.get(j).P = null;
+            }
+        }
+            }
+        
+    }
+        
+    public void Imprimir(){
+        String datos = "";
+        String name = "";
+        for(int i =0; i<column;i++){
+        for(int j = 0; j< fil; j++){
+            datos =  columnas.get(i).M.columna + " " + columnas.get(i).M.get(j).fila ;
+        if(columnas.get(i).M.get(j).Z != null){
+            name = columnas.get(i).M.get(j).Z.nombre; 
+        }
+        else{
+            name = "null";
+        }
+            System.out.println(datos + " "+ name);
         }
             }
        
