@@ -14,10 +14,14 @@ import java.util.Stack;
  */
 public class Practica1s12015_201314408 {
   
-  public static Lista JugadorP = new Lista();
-  public static Lista JugadorZ = new Lista();
+    
+  public static Lista Jugadores = new Lista(); 
   public static Pila Plantas = new Pila();
-          public Practica1s12015_201314408(){
+  public static Cola Zombies = new Cola();
+  public static ListaM pru = new ListaM();
+  public static Matriz mati = new Matriz(8,5);
+  
+  public Practica1s12015_201314408(){
  
     }
     /**
@@ -26,7 +30,18 @@ public class Practica1s12015_201314408 {
     public static void main(String[] args) {
         // TODO code application logic here
    Menu.Start();
-  
+   
+   Zombie z = new Zombie();
+   z.pos = 2;
+   
+   Zombies.insertar(z);
+   Zombies.imprimir();
+   
+   mati.Imprimir();
+   
+   
+   
+    
     }
     
 }
