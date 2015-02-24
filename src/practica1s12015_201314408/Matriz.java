@@ -16,20 +16,44 @@ public class Matriz {
     public int column; 
     public int fil; 
     public NodoMatriz inicio;
-    public ArrayList<ListaM> columnas;
+    public Lista columnas;
     
     public Matriz(int c, int f){
         column =c;
         fil = f; 
         inicio = new NodoMatriz();
-        columnas = new ArrayList<>();
+        columnas = new Lista();
+   crear();
     }
     
     public void crear(){
-        for(int i = 0; i<=column;i++){
+        for(int i = 0; i<column;i++){
             ListaM aux = new ListaM();
-            columnas.add(aux);
+            aux.columna = i;
+        for(int j= 0; j<fil;j++){
+            aux.AddNodo(i);
         }
+       
+            columnas.AddListaM(aux);
+        }        
+    }
+    
+    public void Imprimir(){
+        String datos = "";
+        for(int i =0; i<column;i++){
+        for(int j = 0; j< fil; j++){
+            datos = " " + columnas.get(i).M.columna + " " + columnas.get(i).M.get(j).fila ;
+         System.out.println(datos);
+        }
+            }
+       
+    }
+    
+    public String buscar(int x, int y){
+        String coord = null;
+       
+        
+        return coord;
     }
     
 }
