@@ -20,14 +20,16 @@ import javax.swing.filechooser.FileNameExtensionFilter;
  */
 public class CharacterDesign extends javax.swing.JFrame {
 
-    Planta aux = new Planta();
-    Zombie auxZ = new Zombie();
-    /**
+   public Planta aux = new Planta();
+   public int cp,cz; 
+   /**
      * Creates new form CharacterDesign
      */
     public CharacterDesign() {
         initComponents();
         this.setSize(800,600);
+        cp = practica1s12015_201314408.Practica1s12015_201314408.Jugadores.get(0).cantidad;
+        cz = practica1s12015_201314408.Practica1s12015_201314408.Jugadores.get(1).cantidad;
     }
 
     /**
@@ -144,6 +146,11 @@ public class CharacterDesign extends javax.swing.JFrame {
         jButton2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jButton2.setForeground(new java.awt.Color(255, 255, 255));
         jButton2.setText("REGISTRAR");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
         jPanel3.add(jButton2);
         jButton2.setBounds(120, 310, 120, 40);
 
@@ -263,7 +270,9 @@ if (JFileChooser.APPROVE_OPTION == resultado){
 
 
         fichero = ventana.jfchCargarfoto.getSelectedFile();
-
+        aux.fichero = fichero;
+        aux.imagen = jLabel1;
+       
         try{
 
                ImageIcon icon = new ImageIcon(fichero.toString());
@@ -290,6 +299,67 @@ JOptionPane.showMessageDialog(null, "Error abriendo la imagen "+ ex);
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+      System.out.println(cp +" " + cz);
+        if(jTextField1.getText().isEmpty()&& jTextField2.getText().isEmpty() && jTextField3.getText().isEmpty()){
+            jTextField1.setText("Lennar Primero");
+            jTextField2.setText("Lennar Primero");
+            jTextField3.setText("Lennar Primero");
+        }else if(jTextField1.getText().isEmpty()){
+            jTextField1.setText("Lennar Primero");
+        }
+        else if(jTextField2.getText().isEmpty()){
+            jTextField2.setText("Lennar Primero");
+        }else if(jTextField3.getText().isEmpty()){
+            jTextField3.setText("Lennar Primero");
+        }else {
+       
+            
+            if(cp==0 && cz>0){
+               
+                JOptionPane.showMessageDialog(null,"SE TERMINARON LAS PLANTAS", "ALERTA", JOptionPane.ERROR_MESSAGE);
+                practica1s12015_201314408.Practica1s12015_201314408.Jugadores.get(1).Zombies.get(practica1s12015_201314408.Practica1s12015_201314408.Jugadores.get(1).Zombies.tamaño - cz).zoomb.nombre = jTextField2.getText();
+                practica1s12015_201314408.Practica1s12015_201314408.Jugadores.get(1).Zombies.get(practica1s12015_201314408.Practica1s12015_201314408.Jugadores.get(1).Zombies.tamaño - cz).zoomb.ataque = Integer.parseInt(jTextField3.getText());
+                practica1s12015_201314408.Practica1s12015_201314408.Jugadores.get(1).Zombies.get(practica1s12015_201314408.Practica1s12015_201314408.Jugadores.get(1).Zombies.tamaño - cz).zoomb.defensa = Integer.parseInt(jTextField1.getText());
+                practica1s12015_201314408.Practica1s12015_201314408.Jugadores.get(1).Zombies.get(practica1s12015_201314408.Practica1s12015_201314408.Jugadores.get(1).Zombies.tamaño - cz).zoomb.tipo = jComboBox1.getSelectedItem().toString();
+                practica1s12015_201314408.Practica1s12015_201314408.Jugadores.get(1).Zombies.get(practica1s12015_201314408.Practica1s12015_201314408.Jugadores.get(1).Zombies.tamaño - cz).zoomb.fichero = aux.fichero;
+                practica1s12015_201314408.Practica1s12015_201314408.Jugadores.get(1).Zombies.get(practica1s12015_201314408.Practica1s12015_201314408.Jugadores.get(1).Zombies.tamaño - cz).zoomb.imagen = aux.imagen;
+                cz--;
+                jTextField2.setText(null);
+                jTextField3.setText(null);
+                jTextField1.setText(null);
+            }
+            else if(cp>0 ){
+                
+                practica1s12015_201314408.Practica1s12015_201314408.Jugadores.get(0).Plantas.get(practica1s12015_201314408.Practica1s12015_201314408.Jugadores.get(0).Plantas.tamaño - cp).P.nombre = jTextField2.getText();
+                practica1s12015_201314408.Practica1s12015_201314408.Jugadores.get(0).Plantas.get(practica1s12015_201314408.Practica1s12015_201314408.Jugadores.get(0).Plantas.tamaño - cp).P.ataque = Integer.parseInt(jTextField3.getText());
+                practica1s12015_201314408.Practica1s12015_201314408.Jugadores.get(0).Plantas.get(practica1s12015_201314408.Practica1s12015_201314408.Jugadores.get(0).Plantas.tamaño - cp).P.defensa = Integer.parseInt(jTextField1.getText());
+                practica1s12015_201314408.Practica1s12015_201314408.Jugadores.get(0).Plantas.get(practica1s12015_201314408.Practica1s12015_201314408.Jugadores.get(0).Plantas.tamaño - cp).P.tipo = jComboBox1.getSelectedItem().toString();
+                practica1s12015_201314408.Practica1s12015_201314408.Jugadores.get(0).Plantas.get(practica1s12015_201314408.Practica1s12015_201314408.Jugadores.get(0).Plantas.tamaño - cp).P.fichero = aux.fichero;
+                practica1s12015_201314408.Practica1s12015_201314408.Jugadores.get(0).Plantas.get(practica1s12015_201314408.Practica1s12015_201314408.Jugadores.get(0).Plantas.tamaño - cp).P.imagen = aux.imagen;
+                cp--;
+                jTextField2.setText(null);
+                jTextField3.setText(null);
+                jTextField1.setText(null);
+            }
+            
+            else if(cz == 0){
+                JOptionPane.showMessageDialog(null,"SE TERMINARON LOS ZOMBIES","ALERTA", JOptionPane.ERROR_MESSAGE);
+                for(int i =0; i<practica1s12015_201314408.Practica1s12015_201314408.Jugadores.get(0).Plantas.tamaño;i++){
+                    System.out.println(practica1s12015_201314408.Practica1s12015_201314408.Jugadores.get(0).Plantas.get(i).P.nombre);
+                }
+                
+                for(int j =0; j<practica1s12015_201314408.Practica1s12015_201314408.Jugadores.get(1).Zombies.tamaño;j++){
+                    System.out.println(practica1s12015_201314408.Practica1s12015_201314408.Jugadores.get(1).Zombies.get(j).zoomb.nombre);
+                }
+            }
+        }
+      
+       
+       System.out.println(practica1s12015_201314408.Practica1s12015_201314408.Jugadores.get(0).Plantas.get(0).P.nombre);
+       
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
