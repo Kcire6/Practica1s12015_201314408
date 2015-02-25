@@ -30,6 +30,7 @@ public class CharacterDesign extends javax.swing.JFrame {
         this.setSize(800,600);
         cp = practica1s12015_201314408.Practica1s12015_201314408.Jugadores.get(0).cantidad;
         cz = practica1s12015_201314408.Practica1s12015_201314408.Jugadores.get(1).cantidad;
+    
     }
 
     /**
@@ -57,11 +58,11 @@ public class CharacterDesign extends javax.swing.JFrame {
         jTextField3 = new javax.swing.JTextField();
         jComboBox1 = new javax.swing.JComboBox();
         jButton2 = new javax.swing.JButton();
+        jComboBox4 = new javax.swing.JComboBox();
         jLabel5 = new javax.swing.JLabel();
         jComboBox2 = new javax.swing.JComboBox();
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
-        jComboBox3 = new javax.swing.JComboBox();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         jLabel12 = new javax.swing.JLabel();
@@ -70,6 +71,8 @@ public class CharacterDesign extends javax.swing.JFrame {
         jLabel15 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
+        jComboBox5 = new javax.swing.JComboBox();
+        jButton5 = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -154,6 +157,11 @@ public class CharacterDesign extends javax.swing.JFrame {
         jPanel3.add(jButton2);
         jButton2.setBounds(120, 310, 120, 40);
 
+        jComboBox4.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jComboBox4.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "PLANTAS", "ZOMBIES" }));
+        jPanel3.add(jComboBox4);
+        jComboBox4.setBounds(90, 0, 140, 30);
+
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/practica1s12015_201314408/DatosBack1.jpg"))); // NOI18N
         jPanel3.add(jLabel5);
         jLabel5.setBounds(0, 0, 320, 470);
@@ -161,6 +169,17 @@ public class CharacterDesign extends javax.swing.JFrame {
         jPanel1.add(jPanel3);
         jPanel3.setBounds(110, 80, 320, 470);
 
+        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "PLANTAS", "ZOMBIES" }));
+        jComboBox2.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                jComboBox2ItemStateChanged(evt);
+            }
+        });
+        jComboBox2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox2ActionPerformed(evt);
+            }
+        });
         jPanel1.add(jComboBox2);
         jComboBox2.setBounds(440, 390, 130, 30);
 
@@ -168,17 +187,13 @@ public class CharacterDesign extends javax.swing.JFrame {
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
         jLabel10.setText("CREADOS");
         jPanel1.add(jLabel10);
-        jLabel10.setBounds(540, 360, 170, 30);
+        jLabel10.setBounds(640, 360, 170, 30);
 
         jLabel11.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(255, 255, 255));
         jLabel11.setText("PERSONAJES");
         jPanel1.add(jLabel11);
-        jLabel11.setBounds(520, 340, 170, 30);
-
-        jComboBox3.setEnabled(false);
-        jPanel1.add(jComboBox3);
-        jComboBox3.setBounds(450, 430, 130, 30);
+        jLabel11.setBounds(570, 340, 170, 30);
 
         jButton3.setBackground(new java.awt.Color(0, 153, 255));
         jButton3.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -231,6 +246,23 @@ public class CharacterDesign extends javax.swing.JFrame {
         jLabel17.setForeground(new java.awt.Color(255, 255, 255));
         jPanel1.add(jLabel17);
         jLabel17.setBounds(680, 460, 0, 0);
+
+        jComboBox5.setBackground(new java.awt.Color(102, 102, 102));
+        jComboBox5.setEnabled(false);
+        jPanel1.add(jComboBox5);
+        jComboBox5.setBounds(450, 430, 130, 30);
+
+        jButton5.setBackground(new java.awt.Color(0, 153, 153));
+        jButton5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jButton5.setForeground(new java.awt.Color(255, 255, 255));
+        jButton5.setText("LISTA");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton5);
+        jButton5.setBounds(440, 360, 110, 25);
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/practica1s12015_201314408/Frontyard.jpg"))); // NOI18N
         jPanel1.add(jLabel3);
@@ -315,23 +347,8 @@ JOptionPane.showMessageDialog(null, "Error abriendo la imagen "+ ex);
             jTextField3.setText("Lennar Primero");
         }else {
        
-            
-            if(cp==0 && cz>0){
-               
-                JOptionPane.showMessageDialog(null,"SE TERMINARON LAS PLANTAS", "ALERTA", JOptionPane.ERROR_MESSAGE);
-                practica1s12015_201314408.Practica1s12015_201314408.Jugadores.get(1).Zombies.get(practica1s12015_201314408.Practica1s12015_201314408.Jugadores.get(1).Zombies.tamaño - cz).zoomb.nombre = jTextField2.getText();
-                practica1s12015_201314408.Practica1s12015_201314408.Jugadores.get(1).Zombies.get(practica1s12015_201314408.Practica1s12015_201314408.Jugadores.get(1).Zombies.tamaño - cz).zoomb.ataque = Integer.parseInt(jTextField3.getText());
-                practica1s12015_201314408.Practica1s12015_201314408.Jugadores.get(1).Zombies.get(practica1s12015_201314408.Practica1s12015_201314408.Jugadores.get(1).Zombies.tamaño - cz).zoomb.defensa = Integer.parseInt(jTextField1.getText());
-                practica1s12015_201314408.Practica1s12015_201314408.Jugadores.get(1).Zombies.get(practica1s12015_201314408.Practica1s12015_201314408.Jugadores.get(1).Zombies.tamaño - cz).zoomb.tipo = jComboBox1.getSelectedItem().toString();
-                practica1s12015_201314408.Practica1s12015_201314408.Jugadores.get(1).Zombies.get(practica1s12015_201314408.Practica1s12015_201314408.Jugadores.get(1).Zombies.tamaño - cz).zoomb.fichero = aux.fichero;
-                practica1s12015_201314408.Practica1s12015_201314408.Jugadores.get(1).Zombies.get(practica1s12015_201314408.Practica1s12015_201314408.Jugadores.get(1).Zombies.tamaño - cz).zoomb.imagen = aux.imagen;
-                cz--;
-                jTextField2.setText(null);
-                jTextField3.setText(null);
-                jTextField1.setText(null);
-            }
-            else if(cp>0 ){
-                
+            if(jComboBox4.getSelectedItem().toString() == "PLANTAS"){
+                if(cp>0){
                 practica1s12015_201314408.Practica1s12015_201314408.Jugadores.get(0).Plantas.get(practica1s12015_201314408.Practica1s12015_201314408.Jugadores.get(0).Plantas.tamaño - cp).P.nombre = jTextField2.getText();
                 practica1s12015_201314408.Practica1s12015_201314408.Jugadores.get(0).Plantas.get(practica1s12015_201314408.Practica1s12015_201314408.Jugadores.get(0).Plantas.tamaño - cp).P.ataque = Integer.parseInt(jTextField3.getText());
                 practica1s12015_201314408.Practica1s12015_201314408.Jugadores.get(0).Plantas.get(practica1s12015_201314408.Practica1s12015_201314408.Jugadores.get(0).Plantas.tamaño - cp).P.defensa = Integer.parseInt(jTextField1.getText());
@@ -342,24 +359,71 @@ JOptionPane.showMessageDialog(null, "Error abriendo la imagen "+ ex);
                 jTextField2.setText(null);
                 jTextField3.setText(null);
                 jTextField1.setText(null);
+                }else{
+                JOptionPane.showMessageDialog(null,"SE TERMINARON LAS PLANTAS", "ALERTA", JOptionPane.ERROR_MESSAGE);
+                jTextField2.setText(null);
+                jTextField3.setText(null);
+                jTextField1.setText(null);
+                }
+            }else if(jComboBox4.getSelectedItem().toString() == "ZOMBIES"){
+                if(cz>0){
+                practica1s12015_201314408.Practica1s12015_201314408.Jugadores.get(1).Zombies.get(practica1s12015_201314408.Practica1s12015_201314408.Jugadores.get(1).Zombies.tamaño - cz).zoomb.nombre = jTextField2.getText();
+                practica1s12015_201314408.Practica1s12015_201314408.Jugadores.get(1).Zombies.get(practica1s12015_201314408.Practica1s12015_201314408.Jugadores.get(1).Zombies.tamaño - cz).zoomb.ataque = Integer.parseInt(jTextField3.getText());
+                practica1s12015_201314408.Practica1s12015_201314408.Jugadores.get(1).Zombies.get(practica1s12015_201314408.Practica1s12015_201314408.Jugadores.get(1).Zombies.tamaño - cz).zoomb.defensa = Integer.parseInt(jTextField1.getText());
+                practica1s12015_201314408.Practica1s12015_201314408.Jugadores.get(1).Zombies.get(practica1s12015_201314408.Practica1s12015_201314408.Jugadores.get(1).Zombies.tamaño - cz).zoomb.tipo = jComboBox1.getSelectedItem().toString();
+                practica1s12015_201314408.Practica1s12015_201314408.Jugadores.get(1).Zombies.get(practica1s12015_201314408.Practica1s12015_201314408.Jugadores.get(1).Zombies.tamaño - cz).zoomb.fichero = aux.fichero;
+                practica1s12015_201314408.Practica1s12015_201314408.Jugadores.get(1).Zombies.get(practica1s12015_201314408.Practica1s12015_201314408.Jugadores.get(1).Zombies.tamaño - cz).zoomb.imagen = aux.imagen;
+                cz--;
+                jTextField2.setText(null);
+                jTextField3.setText(null);
+                jTextField1.setText(null);     
+                }else{
+                    JOptionPane.showMessageDialog(null,"SE TERMINARON LOS ZOMBIES", "ALERTA", JOptionPane.ERROR_MESSAGE);
+                jTextField2.setText(null);
+                jTextField3.setText(null);
+                jTextField1.setText(null);
+                }
             }
-            
-            else if(cz == 0){
-                JOptionPane.showMessageDialog(null,"SE TERMINARON LOS ZOMBIES","ALERTA", JOptionPane.ERROR_MESSAGE);
                 for(int i =0; i<practica1s12015_201314408.Practica1s12015_201314408.Jugadores.get(0).Plantas.tamaño;i++){
                     System.out.println(practica1s12015_201314408.Practica1s12015_201314408.Jugadores.get(0).Plantas.get(i).P.nombre);
                 }
                 
                 for(int j =0; j<practica1s12015_201314408.Practica1s12015_201314408.Jugadores.get(1).Zombies.tamaño;j++){
                     System.out.println(practica1s12015_201314408.Practica1s12015_201314408.Jugadores.get(1).Zombies.get(j).zoomb.nombre);
-                }
-            }
+             }
         }
-      
-       
-       System.out.println(practica1s12015_201314408.Practica1s12015_201314408.Jugadores.get(0).Plantas.get(0).P.nombre);
-       
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox2ActionPerformed
+        // TODO add your handling code here:
+      
+     
+        
+    }//GEN-LAST:event_jComboBox2ActionPerformed
+
+    private void jComboBox2ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboBox2ItemStateChanged
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_jComboBox2ItemStateChanged
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        // TODO add your handling code here:
+        if(jComboBox2.getSelectedItem().toString() == "PLANTAS"){
+        jComboBox5.setEnabled(true);
+        jComboBox5.removeAllItems();
+         for(int i =0;i< practica1s12015_201314408.Practica1s12015_201314408.Jugadores.get(0).Plantas.tamaño;i++){
+             jComboBox5.addItem(practica1s12015_201314408.Practica1s12015_201314408.Jugadores.get(0).Plantas.get(i).P.nombre);        
+         }    
+        } 
+        else if(jComboBox2.getSelectedItem().toString() == "ZOMBIES"){
+        jComboBox5.setEnabled(true);
+        jComboBox5.removeAllItems();
+         for(int i =0;i< practica1s12015_201314408.Practica1s12015_201314408.Jugadores.get(1).Zombies.tamaño;i++){
+             jComboBox5.addItem(practica1s12015_201314408.Practica1s12015_201314408.Jugadores.get(1).Zombies.get(i).zoomb   .nombre);        
+         }    
+        } 
+        
+    }//GEN-LAST:event_jButton5ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -403,9 +467,11 @@ JOptionPane.showMessageDialog(null, "Error abriendo la imagen "+ ex);
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
     private javax.swing.JComboBox jComboBox1;
     private javax.swing.JComboBox jComboBox2;
-    private javax.swing.JComboBox jComboBox3;
+    private javax.swing.JComboBox jComboBox4;
+    private javax.swing.JComboBox jComboBox5;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
