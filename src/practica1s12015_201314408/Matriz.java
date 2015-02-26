@@ -22,8 +22,25 @@ public class Matriz {
         inicio = new NodoMatriz();
         columnas = new Lista();
    crear();
+  //anidar();
     }
     
+    public void anidar(){
+        for(int i =0; i<column;i++){
+        for(int j = 0; j< fil; j++){
+            
+        if(i == 0){
+        columnas.get(i).M.get(j).R = columnas.get(1).M.get(j);
+        }
+        
+        if(i<(column+1) && i>0){
+        columnas.get(i).M.get(j).R = columnas.get(i+1).M.get(j);
+        columnas.get(i).M.get(j).L = columnas.get(i-1).M.get(j);
+        }
+       
+        }
+            }        
+    }
     public void crear(){
         for(int i = 0; i<column;i++){
             ListaM aux = new ListaM();
@@ -86,7 +103,7 @@ public class Matriz {
         String name = "";
         for(int i =0; i<column;i++){
         for(int j = 0; j< fil; j++){
-            datos =  columnas.get(i).M.columna + " " + columnas.get(i).M.get(j).fila ;
+            datos =  columnas.get(i).M.columna /*+ " " + columnas.get(i).M.get(j).R.columna*/+ " " + columnas.get(i).M.get(j).fila ;
         if(columnas.get(i).M.get(j).Z != null){
             name = columnas.get(i).M.get(j).Z.nombre; 
         }
@@ -96,14 +113,11 @@ public class Matriz {
             System.out.println(datos + " "+ name);
         }
             }
-       
     }
     
     public String buscar(int x, int y){
         String coord = null;
-       
-        
-        return coord;
+       return coord;
     }
     
 }

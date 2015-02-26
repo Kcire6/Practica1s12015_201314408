@@ -11,14 +11,14 @@ package practica1s12015_201314408;
  * @author Erick
  */
 public class Cola {
-  class Nodo {
-        Zombie z;
-        Nodo sig;
+  class NodoC {
+        Planta p;
+        NodoC sig;
     }
     
-    private Nodo raiz,fondo;
+    private NodoC raiz,fondo;
     
-    Cola() {
+    public Cola() {
         raiz=null;
         fondo=null;
     }
@@ -30,11 +30,11 @@ public class Cola {
             return false;
     }
 
-    void insertar (Zombie info)
+    void insertar (Planta info)
     {
-        Nodo nuevo;
-        nuevo = new Nodo ();
-        nuevo.z = info;
+        NodoC nuevo;
+        nuevo = new NodoC();
+        nuevo.p = info;
         nuevo.sig = null;
         if (vacia ()) {
             raiz = nuevo;
@@ -45,11 +45,11 @@ public class Cola {
         }
     }
 
-   Zombie extraer ()
+   Planta extraer ()
     {
         if (!vacia ())
         {
-            Zombie informacion = raiz.z;
+            Planta informacion = raiz.p;
             if (raiz == fondo){
                 raiz = null;
                 fondo = null;
@@ -62,10 +62,9 @@ public class Cola {
     }
 
     public void imprimir() {
-        Nodo reco=raiz;
+        NodoC reco=raiz;
         System.out.println("Listado de todos los elementos de la cola.");
         while (reco!=null) {
-            System.out.print(reco.z.pos+"-");
             reco=reco.sig;
         }
         System.out.println();

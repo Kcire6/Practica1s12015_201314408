@@ -32,7 +32,6 @@ public class ZPlayer extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
@@ -46,18 +45,6 @@ public class ZPlayer extends javax.swing.JFrame {
         setResizable(false);
 
         jPanel1.setLayout(null);
-
-        jButton1.setBackground(new java.awt.Color(186, 46, 46));
-        jButton1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("CANCELAR");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-        jPanel1.add(jButton1);
-        jButton1.setBounds(243, 10, 110, 23);
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
@@ -116,16 +103,10 @@ public class ZPlayer extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here
-        practica1s12015_201314408.Practica1s12015_201314408.Jugadores.get(1).datos.clear();
-        ZPlayer.this.dispose();
-    }//GEN-LAST:event_jButton1ActionPerformed
-
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         String aux = null;
         String nombre, cantidad;
-        if(practica1s12015_201314408.Practica1s12015_201314408.Jugadores.get(1).datos.isEmpty()){
+        if(practica1s12015_201314408.Practica1s12015_201314408.Jugadores.get(1).J.nombre == null){
         if(jTextField1.getText().isEmpty()&& jTextField2.getText().isEmpty()){
             jTextField1.setText("LLenar Primero");
             jTextField2.setText("LLenar Primero");
@@ -137,17 +118,17 @@ public class ZPlayer extends javax.swing.JFrame {
             jTextField2.setText("LLenar Primero");
         }
         else{
-            nombre = jTextField1.getText();
-            cantidad = jTextField2.getText();
-            practica1s12015_201314408.Practica1s12015_201314408.Jugadores.get(1).datos.add(nombre);
-            practica1s12015_201314408.Practica1s12015_201314408.Jugadores.get(1).datos.add(cantidad);
+            nombre = jTextField2.getText();
+            cantidad = jTextField1.getText();
+            practica1s12015_201314408.Practica1s12015_201314408.Jugadores.get(1).J.nombre = nombre;
+            practica1s12015_201314408.Practica1s12015_201314408.Jugadores.get(1).J.cantidad = Integer.parseInt(cantidad);
             aux = JOptionPane.showInputDialog("Escriba el dato de su campo extra:");
-            practica1s12015_201314408.Practica1s12015_201314408.Jugadores.get(1).datos.add(aux);
+            practica1s12015_201314408.Practica1s12015_201314408.Jugadores.get(1).J.datos.AddDato(aux);
            
         }    
         }else{
             aux = JOptionPane.showInputDialog("Escriba el dato de su campo extra:");
-            practica1s12015_201314408.Practica1s12015_201314408.Jugadores.get(1).datos.add(aux);
+            practica1s12015_201314408.Practica1s12015_201314408.Jugadores.get(1).J.datos.AddDato(aux);
         }
         
                 
@@ -156,7 +137,7 @@ public class ZPlayer extends javax.swing.JFrame {
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
          String nombre, cantidad;
-        if(practica1s12015_201314408.Practica1s12015_201314408.Jugadores.get(1).datos.isEmpty()){
+        if(practica1s12015_201314408.Practica1s12015_201314408.Jugadores.get(1).J.nombre == null){
             if(jTextField1.getText().isEmpty()&& jTextField2.getText().isEmpty()){
             jTextField1.setText("LLenar Primero");
             jTextField2.setText("LLenar Primero");
@@ -168,17 +149,15 @@ public class ZPlayer extends javax.swing.JFrame {
             jTextField2.setText("LLenar Primero");
         }
         else{
-            nombre = jTextField1.getText();
-            cantidad = jTextField2.getText();
-            practica1s12015_201314408.Practica1s12015_201314408.Jugadores.get(1).datos.add(nombre);
-            practica1s12015_201314408.Practica1s12015_201314408.Jugadores.get(1).datos.add(cantidad);
-            
+            nombre = jTextField2.getText();
+            cantidad = jTextField1.getText();
+            practica1s12015_201314408.Practica1s12015_201314408.Jugadores.get(1).J.nombre = nombre;
+            practica1s12015_201314408.Practica1s12015_201314408.Jugadores.get(1).J.cantidad = Integer.parseInt(cantidad);
+           
         }
         }
         ZPlayer.this.dispose();
-         for(int i =0;i< practica1s12015_201314408.Practica1s12015_201314408.Jugadores.get(1).datos.size();i++){
-              System.out.println( practica1s12015_201314408.Practica1s12015_201314408.Jugadores.get(1).datos.get(i));
-            }
+        
     }//GEN-LAST:event_jButton3ActionPerformed
 
     
@@ -218,7 +197,6 @@ public class ZPlayer extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;

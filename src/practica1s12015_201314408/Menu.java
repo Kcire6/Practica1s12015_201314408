@@ -6,6 +6,8 @@
 
 package practica1s12015_201314408;
 
+import java.util.Stack;
+
 /**
  *
  * @author Erick
@@ -15,10 +17,12 @@ public class Menu extends javax.swing.JFrame {
     /**
      * Creates new form Menu
      */
+    public Stack<String> nuevo = new Stack<>();
     public Menu() {
         initComponents();
         this.setSize(600,480);
         jPanel2.setSize(600,450);
+        
     }
 
     /**
@@ -47,6 +51,11 @@ public class Menu extends javax.swing.JFrame {
         jButton1.setText("PRESS TO DIE");
         jButton1.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(56, 27, 0)));
         jButton1.setOpaque(false);
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
         jPanel2.add(jButton1);
         jButton1.setBounds(210, 410, 180, 20);
 
@@ -66,7 +75,21 @@ public class Menu extends javax.swing.JFrame {
 
         getContentPane().add(jPanel2);
         jPanel2.setBounds(0, 0, 600, 500);
+
+        pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        
+       PlayerWindow ventanaJ = new PlayerWindow();
+       ventanaJ.setVisible(true);
+       Menu.this.dispose();
+       
+     
+         
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments

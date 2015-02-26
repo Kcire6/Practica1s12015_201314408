@@ -28,8 +28,8 @@ public class CharacterDesign extends javax.swing.JFrame {
     public CharacterDesign() {
         initComponents();
         this.setSize(800,600);
-        cp = practica1s12015_201314408.Practica1s12015_201314408.Jugadores.get(0).cantidad;
-        cz = practica1s12015_201314408.Practica1s12015_201314408.Jugadores.get(1).cantidad;
+        cp = practica1s12015_201314408.Practica1s12015_201314408.Jugadores.get(0).J.cantidad;
+        cz = practica1s12015_201314408.Practica1s12015_201314408.Jugadores.get(1).J.cantidad;
         mod = 0;
     
     }
@@ -214,6 +214,11 @@ public class CharacterDesign extends javax.swing.JFrame {
         jButton4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jButton4.setForeground(new java.awt.Color(255, 255, 255));
         jButton4.setText("CONTINUAR");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
         jPanel1.add(jButton4);
         jButton4.setBounds(620, 10, 140, 50);
 
@@ -299,11 +304,11 @@ public class CharacterDesign extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 808, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 572, Short.MAX_VALUE)
         );
 
         pack();
@@ -340,17 +345,17 @@ JOptionPane.showMessageDialog(null, "Error abriendo la imagen "+ ex);
         if(jComboBox2.getSelectedItem().toString() =="PLANTAS"){
             int index = 0;
             index = jComboBox5.getSelectedIndex();
-            jLabel15.setText(practica1s12015_201314408.Practica1s12015_201314408.Jugadores.get(0).Plantas.get(index).P.tipo);
-            jLabel16.setText(Integer.toString(practica1s12015_201314408.Practica1s12015_201314408.Jugadores.get(0).Plantas.get(index).P.ataque));
-            jLabel17.setText(Integer.toString(practica1s12015_201314408.Practica1s12015_201314408.Jugadores.get(0).Plantas.get(index).P.defensa)); 
-            practica1s12015_201314408.Practica1s12015_201314408.Jugadores.get(0).Plantas.get(index).P.dibujar(jLabel1);
+            jLabel15.setText(practica1s12015_201314408.Practica1s12015_201314408.Jugadores.get(0).J.Plantas.get(index).P.tipo);
+            jLabel16.setText(Integer.toString(practica1s12015_201314408.Practica1s12015_201314408.Jugadores.get(0).J.Plantas.get(index).P.ataque));
+            jLabel17.setText(Integer.toString(practica1s12015_201314408.Practica1s12015_201314408.Jugadores.get(0).J.Plantas.get(index).P.defensa)); 
+            practica1s12015_201314408.Practica1s12015_201314408.Jugadores.get(0).J.Plantas.get(index).P.dibujar(jLabel1);
         }else if(jComboBox2.getSelectedItem().toString() =="ZOMBIES"){
             int index = 0;
             index = jComboBox5.getSelectedIndex();
-            jLabel15.setText(practica1s12015_201314408.Practica1s12015_201314408.Jugadores.get(1).Zombies.get(index).zoomb.tipo);
-            jLabel16.setText(Integer.toString(practica1s12015_201314408.Practica1s12015_201314408.Jugadores.get(1).Zombies.get(index).zoomb.ataque));
-            jLabel17.setText(Integer.toString(practica1s12015_201314408.Practica1s12015_201314408.Jugadores.get(1).Zombies.get(index).zoomb.defensa)); 
-            practica1s12015_201314408.Practica1s12015_201314408.Jugadores.get(1).Zombies.get(index).zoomb.dibujar(jLabel1);
+            jLabel15.setText(practica1s12015_201314408.Practica1s12015_201314408.Jugadores.get(1).J.Zombies.get(index).zoomb.tipo);
+            jLabel16.setText(Integer.toString(practica1s12015_201314408.Practica1s12015_201314408.Jugadores.get(1).J.Zombies.get(index).zoomb.ataque));
+            jLabel17.setText(Integer.toString(practica1s12015_201314408.Practica1s12015_201314408.Jugadores.get(1).J.Zombies.get(index).zoomb.defensa)); 
+            practica1s12015_201314408.Practica1s12015_201314408.Jugadores.get(1).J.Zombies.get(index).zoomb.dibujar(jLabel1);
         }
     }//GEN-LAST:event_jButton3ActionPerformed
 
@@ -371,56 +376,47 @@ if(mod == 0){
         }else {
        
             if(jComboBox4.getSelectedItem().toString() == "PLANTAS"){
-                if(cp>0){
-                practica1s12015_201314408.Practica1s12015_201314408.Jugadores.get(0).Plantas.get(practica1s12015_201314408.Practica1s12015_201314408.Jugadores.get(0).Plantas.tamaño - cp).P.nombre = jTextField2.getText();
-                practica1s12015_201314408.Practica1s12015_201314408.Jugadores.get(0).Plantas.get(practica1s12015_201314408.Practica1s12015_201314408.Jugadores.get(0).Plantas.tamaño - cp).P.ataque = Integer.parseInt(jTextField3.getText());
-                practica1s12015_201314408.Practica1s12015_201314408.Jugadores.get(0).Plantas.get(practica1s12015_201314408.Practica1s12015_201314408.Jugadores.get(0).Plantas.tamaño - cp).P.defensa = Integer.parseInt(jTextField1.getText());
-                practica1s12015_201314408.Practica1s12015_201314408.Jugadores.get(0).Plantas.get(practica1s12015_201314408.Practica1s12015_201314408.Jugadores.get(0).Plantas.tamaño - cp).P.tipo = jComboBox1.getSelectedItem().toString();
-                practica1s12015_201314408.Practica1s12015_201314408.Jugadores.get(0).Plantas.get(practica1s12015_201314408.Practica1s12015_201314408.Jugadores.get(0).Plantas.tamaño - cp).P.fichero = aux.fichero;
-                cp--;
+               Planta aux = new Planta();
+                aux.nombre = jTextField2.getText();
+                aux.ataque = Integer.parseInt(jTextField3.getText());
+                aux.defensa = Integer.parseInt(jTextField1.getText());
+                aux.tipo = jComboBox1.getSelectedItem().toString();
+                aux.fichero = aux.fichero;
+                Practica1s12015_201314408.Jugadores.get(0).J.Plantas.AddPlanta(aux);
+                
                 jTextField2.setText(null);
                 jTextField3.setText(null);
                 jTextField1.setText(null);
-                }else{
-                JOptionPane.showMessageDialog(null,"SE TERMINARON LAS PLANTAS", "ALERTA", JOptionPane.ERROR_MESSAGE);
-                jTextField2.setText(null);
-                jTextField3.setText(null);
-                jTextField1.setText(null);
-                }
+                
             }else if(jComboBox4.getSelectedItem().toString() == "ZOMBIES"){
-                if(cz>0){
-                practica1s12015_201314408.Practica1s12015_201314408.Jugadores.get(1).Zombies.get(practica1s12015_201314408.Practica1s12015_201314408.Jugadores.get(1).Zombies.tamaño - cz).zoomb.nombre = jTextField2.getText();
-                practica1s12015_201314408.Practica1s12015_201314408.Jugadores.get(1).Zombies.get(practica1s12015_201314408.Practica1s12015_201314408.Jugadores.get(1).Zombies.tamaño - cz).zoomb.ataque = Integer.parseInt(jTextField3.getText());
-                practica1s12015_201314408.Practica1s12015_201314408.Jugadores.get(1).Zombies.get(practica1s12015_201314408.Practica1s12015_201314408.Jugadores.get(1).Zombies.tamaño - cz).zoomb.defensa = Integer.parseInt(jTextField1.getText());
-                practica1s12015_201314408.Practica1s12015_201314408.Jugadores.get(1).Zombies.get(practica1s12015_201314408.Practica1s12015_201314408.Jugadores.get(1).Zombies.tamaño - cz).zoomb.tipo = jComboBox1.getSelectedItem().toString();
-                practica1s12015_201314408.Practica1s12015_201314408.Jugadores.get(1).Zombies.get(practica1s12015_201314408.Practica1s12015_201314408.Jugadores.get(1).Zombies.tamaño - cz).zoomb.fichero = aux.fichero;
-                cz--;
-                jTextField2.setText(null);
-                jTextField3.setText(null);
-                jTextField1.setText(null);     
-                }else{
-                    JOptionPane.showMessageDialog(null,"SE TERMINARON LOS ZOMBIES", "ALERTA", JOptionPane.ERROR_MESSAGE);
+                Zombie aux1 = new Zombie();
+                aux1.nombre = jTextField2.getText();
+                aux1.ataque = Integer.parseInt(jTextField3.getText());
+                aux1.defensa = Integer.parseInt(jTextField1.getText());
+                aux1.tipo = jComboBox1.getSelectedItem().toString();
+                aux1.fichero = aux.fichero;
+                Practica1s12015_201314408.Jugadores.get(1).J.Zombies.AddZombie(aux1);
+                
                 jTextField2.setText(null);
                 jTextField3.setText(null);
                 jTextField1.setText(null);
-                }
             }
-                for(int i =0; i<practica1s12015_201314408.Practica1s12015_201314408.Jugadores.get(0).Plantas.tamaño;i++){
-                    System.out.println(practica1s12015_201314408.Practica1s12015_201314408.Jugadores.get(0).Plantas.get(i).P.nombre);
+                for(int i =0; i<practica1s12015_201314408.Practica1s12015_201314408.Jugadores.get(0).J.Plantas.tamaño;i++){
+                    System.out.println(practica1s12015_201314408.Practica1s12015_201314408.Jugadores.get(0).J.Plantas.get(i).P.nombre);
                 }
                 
-                for(int j =0; j<practica1s12015_201314408.Practica1s12015_201314408.Jugadores.get(1).Zombies.tamaño;j++){
-                    System.out.println(practica1s12015_201314408.Practica1s12015_201314408.Jugadores.get(1).Zombies.get(j).zoomb.nombre);
+                for(int j =0; j<practica1s12015_201314408.Practica1s12015_201314408.Jugadores.get(1).J.Zombies.tamaño;j++){
+                    System.out.println(practica1s12015_201314408.Practica1s12015_201314408.Jugadores.get(1).J.Zombies.get(j).zoomb.nombre);
              }
         }
 }else if(mod == 1){
     int index = jComboBox5.getSelectedIndex();
     if(jComboBox2.getSelectedItem().toString() =="PLANTAS"){
-            practica1s12015_201314408.Practica1s12015_201314408.Jugadores.get(0).Plantas.get(index).P.nombre = jTextField2.getText();
-                practica1s12015_201314408.Practica1s12015_201314408.Jugadores.get(0).Plantas.get(index).P.ataque = Integer.parseInt(jTextField3.getText());
-                practica1s12015_201314408.Practica1s12015_201314408.Jugadores.get(0).Plantas.get(index).P.defensa = Integer.parseInt(jTextField1.getText());
-                practica1s12015_201314408.Practica1s12015_201314408.Jugadores.get(0).Plantas.get(index).P.tipo = jComboBox1.getSelectedItem().toString();
-                practica1s12015_201314408.Practica1s12015_201314408.Jugadores.get(0).Plantas.get(index).P.fichero = aux.fichero;
+            practica1s12015_201314408.Practica1s12015_201314408.Jugadores.get(0).J.Plantas.get(index).P.nombre = jTextField2.getText();
+                practica1s12015_201314408.Practica1s12015_201314408.Jugadores.get(0).J.Plantas.get(index).P.ataque = Integer.parseInt(jTextField3.getText());
+                practica1s12015_201314408.Practica1s12015_201314408.Jugadores.get(0).J.Plantas.get(index).P.defensa = Integer.parseInt(jTextField1.getText());
+                practica1s12015_201314408.Practica1s12015_201314408.Jugadores.get(0).J.Plantas.get(index).P.tipo = jComboBox1.getSelectedItem().toString();
+                practica1s12015_201314408.Practica1s12015_201314408.Jugadores.get(0).J.Plantas.get(index).P.fichero = aux.fichero;
                 
                 jTextField2.setText(null);
                 jTextField3.setText(null);
@@ -428,11 +424,11 @@ if(mod == 0){
     }else if(jComboBox2.getSelectedItem().toString() =="ZOMBIES"){
             int index1 = 0;
             index = jComboBox5.getSelectedIndex();
-            practica1s12015_201314408.Practica1s12015_201314408.Jugadores.get(1).Zombies.get(index1).zoomb.nombre = jTextField2.getText();
-                practica1s12015_201314408.Practica1s12015_201314408.Jugadores.get(1).Zombies.get(index1).zoomb.ataque = Integer.parseInt(jTextField3.getText());
-                practica1s12015_201314408.Practica1s12015_201314408.Jugadores.get(1).Zombies.get(index1).zoomb.defensa = Integer.parseInt(jTextField1.getText());
-                practica1s12015_201314408.Practica1s12015_201314408.Jugadores.get(1).Zombies.get(index1).zoomb.tipo = jComboBox1.getSelectedItem().toString();
-                practica1s12015_201314408.Practica1s12015_201314408.Jugadores.get(1).Zombies.get(index1).zoomb.fichero = aux.fichero;
+            practica1s12015_201314408.Practica1s12015_201314408.Jugadores.get(1).J.Zombies.get(index1).zoomb.nombre = jTextField2.getText();
+                practica1s12015_201314408.Practica1s12015_201314408.Jugadores.get(1).J.Zombies.get(index1).zoomb.ataque = Integer.parseInt(jTextField3.getText());
+                practica1s12015_201314408.Practica1s12015_201314408.Jugadores.get(1).J.Zombies.get(index1).zoomb.defensa = Integer.parseInt(jTextField1.getText());
+                practica1s12015_201314408.Practica1s12015_201314408.Jugadores.get(1).J.Zombies.get(index1).zoomb.tipo = jComboBox1.getSelectedItem().toString();
+                practica1s12015_201314408.Practica1s12015_201314408.Jugadores.get(1).J.Zombies.get(index1).zoomb.fichero = aux.fichero;
                 
                 jTextField2.setText(null);
                 jTextField3.setText(null);
@@ -459,15 +455,15 @@ mod = 0;
         if(jComboBox2.getSelectedItem().toString() == "PLANTAS"){
         jComboBox5.setEnabled(true);
         jComboBox5.removeAllItems();
-         for(int i =0;i< practica1s12015_201314408.Practica1s12015_201314408.Jugadores.get(0).Plantas.tamaño;i++){
-             jComboBox5.addItem(practica1s12015_201314408.Practica1s12015_201314408.Jugadores.get(0).Plantas.get(i).P.nombre);        
+         for(int i =0;i< practica1s12015_201314408.Practica1s12015_201314408.Jugadores.get(0).J.Plantas.tamaño;i++){
+             jComboBox5.addItem(practica1s12015_201314408.Practica1s12015_201314408.Jugadores.get(0).J.Plantas.get(i).P.nombre);        
          }    
         } 
         else if(jComboBox2.getSelectedItem().toString() == "ZOMBIES"){
         jComboBox5.setEnabled(true);
         jComboBox5.removeAllItems();
-         for(int i =0;i< practica1s12015_201314408.Practica1s12015_201314408.Jugadores.get(1).Zombies.tamaño;i++){
-             jComboBox5.addItem(practica1s12015_201314408.Practica1s12015_201314408.Jugadores.get(1).Zombies.get(i).zoomb.nombre);        
+         for(int i =0;i< practica1s12015_201314408.Practica1s12015_201314408.Jugadores.get(1).J.Zombies.tamaño;i++){
+             jComboBox5.addItem(practica1s12015_201314408.Practica1s12015_201314408.Jugadores.get(1).J.Zombies.get(i).zoomb.nombre);        
          }    
         } 
         
@@ -477,16 +473,16 @@ mod = 0;
  if(jComboBox2.getSelectedItem().toString() =="PLANTAS"){
             int index = 0;
             index = jComboBox5.getSelectedIndex();
-            practica1s12015_201314408.Practica1s12015_201314408.Jugadores.get(0).Plantas.get(index).P.nombre = null;
-            practica1s12015_201314408.Practica1s12015_201314408.Jugadores.get(0).Plantas.get(index).P.tipo = null;
-            practica1s12015_201314408.Practica1s12015_201314408.Jugadores.get(0).Plantas.get(index).P.ataque = 0;
-            practica1s12015_201314408.Practica1s12015_201314408.Jugadores.get(0).Plantas.get(index).P.defensa = 0; 
+            practica1s12015_201314408.Practica1s12015_201314408.Jugadores.get(0).J.Plantas.get(index).P.nombre = null;
+            practica1s12015_201314408.Practica1s12015_201314408.Jugadores.get(0).J.Plantas.get(index).P.tipo = null;
+            practica1s12015_201314408.Practica1s12015_201314408.Jugadores.get(0).J.Plantas.get(index).P.ataque = 0;
+            practica1s12015_201314408.Practica1s12015_201314408.Jugadores.get(0).J.Plantas.get(index).P.defensa = 0; 
         }else if(jComboBox2.getSelectedItem().toString() =="ZOMBIES"){
             int index = 0;
-            practica1s12015_201314408.Practica1s12015_201314408.Jugadores.get(1).Zombies.get(index).zoomb.nombre = null;
-            practica1s12015_201314408.Practica1s12015_201314408.Jugadores.get(1).Zombies.get(index).zoomb.tipo = null;
-            practica1s12015_201314408.Practica1s12015_201314408.Jugadores.get(1).Zombies.get(index).zoomb.ataque = 0;
-            practica1s12015_201314408.Practica1s12015_201314408.Jugadores.get(1).Zombies.get(index).zoomb.defensa = 0; 
+            practica1s12015_201314408.Practica1s12015_201314408.Jugadores.get(1).J.Zombies.get(index).zoomb.nombre = null;
+            practica1s12015_201314408.Practica1s12015_201314408.Jugadores.get(1).J.Zombies.get(index).zoomb.tipo = null;
+            practica1s12015_201314408.Practica1s12015_201314408.Jugadores.get(1).J.Zombies.get(index).zoomb.ataque = 0;
+            practica1s12015_201314408.Practica1s12015_201314408.Jugadores.get(1).J.Zombies.get(index).zoomb.defensa = 0; 
         }    
     }//GEN-LAST:event_jButton6ActionPerformed
 
@@ -496,20 +492,30 @@ mod = 1;
         if(jComboBox2.getSelectedItem().toString() =="PLANTAS"){
             int index = 0;
             index = jComboBox5.getSelectedIndex();
-            jLabel2.setText(practica1s12015_201314408.Practica1s12015_201314408.Jugadores.get(0).Plantas.get(index).P.nombre);
-            jLabel3.setText(Integer.toString(practica1s12015_201314408.Practica1s12015_201314408.Jugadores.get(0).Plantas.get(index).P.ataque));
-            jLabel1.setText(Integer.toString(practica1s12015_201314408.Practica1s12015_201314408.Jugadores.get(0).Plantas.get(index).P.defensa)); 
-            practica1s12015_201314408.Practica1s12015_201314408.Jugadores.get(0).Plantas.get(index).P.dibujar(jLabel1);
+            jLabel2.setText(practica1s12015_201314408.Practica1s12015_201314408.Jugadores.get(0).J.Plantas.get(index).P.nombre);
+            jLabel3.setText(Integer.toString(practica1s12015_201314408.Practica1s12015_201314408.Jugadores.get(0).J.Plantas.get(index).P.ataque));
+            jLabel1.setText(Integer.toString(practica1s12015_201314408.Practica1s12015_201314408.Jugadores.get(0).J.Plantas.get(index).P.defensa)); 
+            practica1s12015_201314408.Practica1s12015_201314408.Jugadores.get(0).J.Plantas.get(index).P.dibujar(jLabel1);
         }else if(jComboBox2.getSelectedItem().toString() =="ZOMBIES"){
             int index = 0;
             index = jComboBox5.getSelectedIndex();
-            jLabel2.setText(practica1s12015_201314408.Practica1s12015_201314408.Jugadores.get(1).Zombies.get(index).zoomb.nombre);
-            jLabel3.setText(Integer.toString(practica1s12015_201314408.Practica1s12015_201314408.Jugadores.get(1).Zombies.get(index).zoomb.ataque));
-            jLabel1.setText(Integer.toString(practica1s12015_201314408.Practica1s12015_201314408.Jugadores.get(1).Zombies.get(index).zoomb.defensa)); 
-            practica1s12015_201314408.Practica1s12015_201314408.Jugadores.get(1).Zombies.get(index).zoomb.dibujar(jLabel1);
+            jLabel2.setText(practica1s12015_201314408.Practica1s12015_201314408.Jugadores.get(1).J.Zombies.get(index).zoomb.nombre);
+            jLabel3.setText(Integer.toString(practica1s12015_201314408.Practica1s12015_201314408.Jugadores.get(1).J.Zombies.get(index).zoomb.ataque));
+            jLabel1.setText(Integer.toString(practica1s12015_201314408.Practica1s12015_201314408.Jugadores.get(1).J.Zombies.get(index).zoomb.defensa)); 
+            practica1s12015_201314408.Practica1s12015_201314408.Jugadores.get(1).J.Zombies.get(index).zoomb.dibujar(jLabel1);
         }
         
     }//GEN-LAST:event_jButton7ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        // TODO add your handling code here:
+        Graphviz g = new Graphviz();
+        g.doCatalogo();
+        
+        Tablero mesa = new Tablero();
+        mesa.setVisible(true);
+        CharacterDesign.this.dispose();
+    }//GEN-LAST:event_jButton4ActionPerformed
 
     /**
      * @param args the command line arguments

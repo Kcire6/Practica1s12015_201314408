@@ -6,11 +6,8 @@
 
 package practica1s12015_201314408;
 
+import javax.swing.JOptionPane;
 
-/**
- *
- * @author Erick
- */
 public class PlayerWindow extends javax.swing.JFrame {
 public String nnuevo;
     /**
@@ -69,6 +66,11 @@ public String nnuevo;
         jButton3.setBackground(new java.awt.Color(51, 102, 255));
         jButton3.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jButton3.setText("COMENZAR JUEGO");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
         jPanel1.add(jButton3);
         jButton3.setBounds(20, 110, 160, 50);
 
@@ -119,9 +121,46 @@ public String nnuevo;
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
-        practica1s12015_201314408.Practica1s12015_201314408.Jugadores.get(0).datos.clear();
-        practica1s12015_201314408.Practica1s12015_201314408.Jugadores.get(1).datos.clear();
+       Practica1s12015_201314408.Jugadores.get(0).J.nombre = "";
+        Practica1s12015_201314408.Jugadores.get(0).J.cantidad = 0;
+        try{
+        for(int i=1;i<Practica1s12015_201314408.Jugadores.get(0).J.datos.tamaño;i++){
+        practica1s12015_201314408.Practica1s12015_201314408.Jugadores.get(0).J.datos.remove(i);
+        }   
+        }catch(Exception er){}
+        
+        
+       Practica1s12015_201314408.Jugadores.get(1).J.nombre = "";
+        Practica1s12015_201314408.Jugadores.get(1).J.cantidad = 0;
+        try{
+        for(int i=1;i<Practica1s12015_201314408.Jugadores.get(1).J.datos.tamaño;i++){
+        practica1s12015_201314408.Practica1s12015_201314408.Jugadores.get(0).J.datos.remove(i);
+        }    
+        }catch(Exception er){
+        }
+        
     }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+     if(!practica1s12015_201314408.Practica1s12015_201314408.Jugadores.get(0).J.nombre.isEmpty()&& !practica1s12015_201314408.Practica1s12015_201314408.Jugadores.get(1).J.nombre.isEmpty()){
+         for(int i =0;i< practica1s12015_201314408.Practica1s12015_201314408.Jugadores.get(1).J.datos.tamaño;i++){
+              System.out.println( practica1s12015_201314408.Practica1s12015_201314408.Jugadores.get(1).J.datos.get(i).datosE);
+            }
+         System.out.println("Datos Plantas");
+          for(int i =0;i< practica1s12015_201314408.Practica1s12015_201314408.Jugadores.get(0).J.datos.tamaño;i++){
+              System.out.println( practica1s12015_201314408.Practica1s12015_201314408.Jugadores.get(0).J.datos.get(i).datosE);
+            }
+         
+         CharacterDesign cd = new CharacterDesign();
+     cd.setVisible(true);
+    Graphviz g = new Graphviz();
+    g.doUsuarios();
+     PlayerWindow.this.dispose();
+     }else{
+         JOptionPane.showMessageDialog(null,"DEBE COMPLETAR LA CREACION DE JUGADORES","ALERTA",JOptionPane.ERROR_MESSAGE);
+     }
+        
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments

@@ -13,14 +13,12 @@ import javax.swing.JOptionPane;
  */
 public class PPlayer extends javax.swing.JFrame {
 
-  public Lista auxP;
     /**
      * Creates new form PPlayer
      */
     public PPlayer() {
         initComponents();
     this.setSize(400,300);
-    auxP = new Lista();
     }
 
     /**
@@ -38,7 +36,6 @@ public class PPlayer extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jTextField2 = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
@@ -75,18 +72,6 @@ public class PPlayer extends javax.swing.JFrame {
         jPanel1.add(jButton1);
         jButton1.setBounds(110, 170, 200, 40);
 
-        jButton2.setBackground(new java.awt.Color(165, 32, 32));
-        jButton2.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(255, 255, 255));
-        jButton2.setText("CANCELAR");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
-        jPanel1.add(jButton2);
-        jButton2.setBounds(243, 10, 120, 23);
-
         jButton3.setBackground(new java.awt.Color(51, 153, 255));
         jButton3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jButton3.setForeground(new java.awt.Color(255, 255, 255));
@@ -118,30 +103,65 @@ public class PPlayer extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-        PPlayer.this.dispose();
-    }//GEN-LAST:event_jButton2ActionPerformed
-
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         String aux = null;
-        if(!jTextField1.getText().isEmpty() && !jTextField2.getText().isEmpty()){
-    aux= JOptionPane.showInputDialog("Agregue la informacion de su campo extra: ");
-}
-        if(jTextField1.getText().isEmpty()){
+        String nombre, cantidad;
+        if(practica1s12015_201314408.Practica1s12015_201314408.Jugadores.get(0).J.nombre == null){
+        if(jTextField1.getText().isEmpty()&& jTextField2.getText().isEmpty()){
             jTextField1.setText("LLenar Primero");
-        }
-                if(jTextField2.getText().isEmpty()){
             jTextField2.setText("LLenar Primero");
         }
-
-       
+        else if(jTextField1.getText().isEmpty()){
+            jTextField1.setText("LLenar Primero");
+        }
+        else if(jTextField2.getText().isEmpty()){
+            jTextField2.setText("LLenar Primero");
+        }
+        else{
+            nombre = jTextField1.getText();
+            cantidad = jTextField2.getText();
+              practica1s12015_201314408.Practica1s12015_201314408.Jugadores.get(0).J.nombre = nombre;
+            practica1s12015_201314408.Practica1s12015_201314408.Jugadores.get(0).J.cantidad = Integer.parseInt(cantidad);
+            
+            aux = JOptionPane.showInputDialog("Escriba el dato de su campo extra:");
+            practica1s12015_201314408.Practica1s12015_201314408.Jugadores.get(0).J.datos.AddDato(aux);
+           
+        }    
+        }else{
+            aux = JOptionPane.showInputDialog("Escriba el dato de su campo extra:");
+            practica1s12015_201314408.Practica1s12015_201314408.Jugadores.get(0).J.datos.AddDato(aux);
+        }
+        
                 
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
+     
+        String nombre, cantidad;
+        if(practica1s12015_201314408.Practica1s12015_201314408.Jugadores.get(0).J.nombre == null){
+            if(jTextField1.getText().isEmpty()&& jTextField2.getText().isEmpty()){
+            jTextField1.setText("LLenar Primero");
+            jTextField2.setText("LLenar Primero");
+        }
+        else if(jTextField1.getText().isEmpty()){
+            jTextField1.setText("LLenar Primero");
+        }
+        else if(jTextField2.getText().isEmpty()){
+            jTextField2.setText("LLenar Primero");
+        }
+        else{
+            nombre = jTextField1.getText();
+            cantidad = jTextField2.getText();
+            practica1s12015_201314408.Practica1s12015_201314408.Jugadores.get(0).J.nombre = nombre;
+            practica1s12015_201314408.Practica1s12015_201314408.Jugadores.get(0).J.cantidad = Integer.parseInt(cantidad);
+        
+            
+            
+        }
+        }
+        PPlayer.this.dispose();
     }//GEN-LAST:event_jButton3ActionPerformed
 
     
@@ -184,7 +204,6 @@ public class PPlayer extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

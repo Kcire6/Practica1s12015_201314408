@@ -6,7 +6,8 @@
 
 package practica1s12015_201314408;
 
-import java.util.Stack;
+import java.util.ArrayList;
+
 
 /**
  *
@@ -15,7 +16,7 @@ import java.util.Stack;
 public class Practica1s12015_201314408 {
   
     
-  public static Lista Jugadores = new Lista(); 
+  public static Lista Jugadores  = new Lista(); 
   public static Pila Plantas = new Pila();
   public static Cola Zombies = new Cola();
   public static ListaM pru = new ListaM();
@@ -30,18 +31,11 @@ public class Practica1s12015_201314408 {
     public static void main(String[] args) {
         // TODO code application logic here
    Menu.Start();
-   
-   Zombie z = new Zombie();
-   z.pos = 2;
-   
-   Zombies.insertar(z);
-   Zombies.imprimir();
-   
-   mati.Imprimir();
-   
-   
-   
-    
+   Jugador Pplay = new Jugador();
+   Jugador Zplay = new Jugador(); 
+   Jugadores.AddPlayer(Pplay);
+   Jugadores.AddPlayer(Zplay);
+     
     }
     
 }

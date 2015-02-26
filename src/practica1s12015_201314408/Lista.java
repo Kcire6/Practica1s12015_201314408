@@ -6,18 +6,21 @@
 
 package practica1s12015_201314408;
 
+import javax.swing.JLabel;
+
 /**
  *
  * @author Erick
  */
 public class Lista {
-    public Nodo inicio;
-    public Nodo fin;
+    public NodoL inicio;
+    public NodoL fin;
+    public JLabel imagen;
     public int tamaño;
     
     public Lista(){
-        fin = new Nodo();
-        inicio = new Nodo();
+        fin = new NodoL();
+        inicio = new NodoL();
         tamaño = 0;
     }
     
@@ -26,22 +29,49 @@ public class Lista {
      inicio.zoomb = Z;
      fin.sig = inicio; 
      inicio = fin; 
-     fin = new Nodo();
+     fin = new NodoL();
+     tamaño ++; 
+    }
+     public void AddPlanta(Planta P){
+     inicio.pos = tamaño; 
+     inicio.P = P;
+     fin.sig = inicio; 
+     inicio = fin; 
+     fin = new NodoL();
      tamaño ++; 
     }
     
+     public void AddPlayer(Jugador j){
+     inicio.pos = tamaño; 
+     inicio.J = j;
+     fin.sig = inicio; 
+     inicio = fin; 
+     fin = new NodoL();
+     tamaño ++; 
+    }
+    
+    public void AddListaM(ListaM m){
+     inicio.pos = tamaño; 
+     inicio.M = m;
+     fin.sig = inicio; 
+     inicio = fin; 
+     fin = new NodoL();
+     tamaño ++; 
+    }
+     
+     
       public void AddDato(String s){
      inicio.pos = tamaño; 
      inicio.datosE = s;
      fin.sig = inicio; 
      inicio = fin; 
-     fin = new Nodo();
+     fin = new NodoL();
      tamaño ++; 
     }
-    
-     public Nodo get(int n) {
-        Nodo actual = inicio;
-        Nodo buscado = new Nodo();
+      
+     public NodoL get(int n) {
+        NodoL actual = inicio;
+        NodoL buscado = new NodoL();
         while (actual != null) {
             if (actual.sig.pos == n) {
                 buscado = actual.sig;
@@ -55,12 +85,12 @@ public class Lista {
     }
 
     public void remove(int n) {
-        Nodo actual = inicio;
-        Nodo anterior = new Nodo();
+        NodoL actual = inicio;
+        NodoL anterior = new NodoL();
         while (actual != null) {
             if (actual.pos == n) {
                 anterior.sig = actual.sig;
-                Nodo aux = anterior.sig;
+                NodoL aux = anterior.sig;
                 while (aux != null) {
                     aux.pos--;
                     aux = aux.sig;

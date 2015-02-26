@@ -17,10 +17,28 @@ import javax.swing.ImageIcon;
  * @author Erick
  */
 public class Zombie {
-   public String nombre; 
-   public JLabel icon;
+   public String nombre,tipo; 
+   int ataque,defensa;
+   public JLabel imagen;
+   public ImageIcon ic;
+   public Icon icono;
+   public File fichero;
     
     public Zombie(){
-     nombre = "null";
+        
+       ataque =0;
+       defensa = 0; 
+       nombre = null;
+         
+     }
+    public void dibujar(JLabel ima){
+        try{
+           ic = new ImageIcon(fichero.toString());
+           icono = new ImageIcon(ic.getImage().getScaledInstance(ima.getWidth(), ima.getHeight(), Image.SCALE_DEFAULT));
+           ima.setText(null);
+           ima.setIcon(icono);
+       }catch(Exception ex){
+           
+       } 
     }
 }
